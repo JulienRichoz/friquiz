@@ -8,6 +8,7 @@ defmodule Friquiz.Accounts.User do
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    field :role, :string, default: "player"
 
     timestamps(type: :utc_datetime)
   end
@@ -37,9 +38,10 @@ defmodule Friquiz.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :role])
     |> validate_email(opts)
     |> validate_password(opts)
+    |> put_change(:role, "admin") # Met à jour le rôle en "admin"
   end
 
   defp validate_email(changeset, opts) do

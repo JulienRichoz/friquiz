@@ -3,7 +3,6 @@ defmodule Friquiz.Question do
   import Ecto.Changeset
 
   schema "questions" do
-    field :id, Ecto.UUID, autogenerate: true, primary_key: true
     field :questionType, :string
     field :content, :string
     field :correctAnswer, :string

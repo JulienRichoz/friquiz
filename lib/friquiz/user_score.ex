@@ -3,7 +3,6 @@ defmodule Friquiz.UserScore do
   import Ecto.Changeset
 
   schema "user_scores" do
-    field :id, Ecto.UUID, autogenerate: true, primary_key: true
     field :score, :integer
     belongs_to :user, Friquiz.User
     belongs_to :quiz_session, Friquiz.QuizSession

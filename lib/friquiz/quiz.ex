@@ -3,7 +3,6 @@ defmodule Friquiz.Quiz do
   import Ecto.Changeset
 
   schema "quizzes" do
-    field :id, Ecto.UUID, autogenerate: true, primary_key: true
     field :maxPlayer, :integer
     field :link, :string
     belongs_to :user, Friquiz.User

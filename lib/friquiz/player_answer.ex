@@ -3,7 +3,6 @@ defmodule Friquiz.PlayerAnswer do
   import Ecto.Changeset
 
   schema "player_answers" do
-    field :id, Ecto.UUID, autogenerate: true, primary_key: true
     field :givenAnswer, :string
     field :isCorrect, :boolean
     field :timestamp, :naive_datetime
